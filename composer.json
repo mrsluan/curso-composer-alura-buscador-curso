@@ -1,0 +1,53 @@
+{
+    "name": "mrsilva/buscador-cursos",
+    "description": "Projeto que busca os cursos no site da Alura",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Márcio Roberto Silva",
+            "email": "mrsluan@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.2",
+        "symfony/dom-crawler": "^4.2",
+        "symfony/css-selector": "^5.2" 
+    },
+    "autoload":{
+        "classmap":[
+            "./Teste.php"
+        ],
+        "files":[ "./functions.php"],
+        "psr-4":{
+            "Alura\\BuscadorDeCursos\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "8",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phan/phan": "^4.0"
+    },
+    "scripts":{
+        "test": "phpunit tests\\TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "corrige": "phpcbf src/",
+        "lista": "ls -all",
+        "check": [
+            "@phan",
+            "@corrige",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd" : [
+            "@test"
+        ]
+    },
+    "scripts-descriptions":{
+        "check": "Roda as verificações do código. PHAN, CORRIGE, CS, TEST.",
+        "phan": "Analisa o codigo em busca de erros",
+        "corrige" : "Corrige o codigo colocando no padrão PSR",
+        "cs" : "Analisa o codigo para buscar o que esta fora do padrão PSR-12",
+        "test": "Excecuta os testes unitarios"
+    }
+}
