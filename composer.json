@@ -49,5 +49,7 @@
         "corrige" : "Corrige o codigo colocando no padrão PSR",
         "cs" : "Analisa o codigo para buscar o que esta fora do padrão PSR-12",
         "test": "Excecuta os testes unitarios"
-    }
+    },
+    "license": "GPL-3.0",
+    "bin": ["buscar-cursos.php"]
 }
